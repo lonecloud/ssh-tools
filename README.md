@@ -7,7 +7,7 @@
 1. 克隆或者下载该项目
 
 ```bash
-git clone xxx
+git clone git@github.com:lonecloud/ssh-tools.git
 ```
 
 2. 配置ssh.dat
