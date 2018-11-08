@@ -3,10 +3,10 @@ echo 请选择你的机器列表
 # define BASE PATH
 BASE_PATH=./
 # 定义数据相关的文件
-DATA_FILE=$BASE_PATH/ssh.dat
+DATA_FILE=$BASE_PATH/data/ssh.dat
 # 定义执行ssh的文件
-DIRECT_FILE=$BASE_PATH/direct.exp
-STEP_FILE=$BASE_PATH/step.exp
+DIRECT_FILE=$BASE_PATH/exp/direct.exp
+STEP_FILE=$BASE_PATH/exp/step.exp
 TYPE_ARR=($(awk '{print $1}' $DATA_FILE))
 HOST_ARR=($(awk '{print $2}' $DATA_FILE))
 PASS_ARR=($(awk '{print $3}' $DATA_FILE))
