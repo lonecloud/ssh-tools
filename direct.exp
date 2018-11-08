@@ -1,0 +1,12 @@
+#!/bin/expect
+set ip [lindex $argv 0 ]  
+set passwd [lindex $argv 1 ] 
+set timeout 10
+spawn ssh $ip
+expect {  
+ 	"*yes/no" { send "yes\r"; exp_continue}  
+ 	"*assword:" { send "$passwd\r" }  
+}  
+expect "*@*"    
+send "clear\r"
+interact
