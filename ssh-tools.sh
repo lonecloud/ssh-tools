@@ -56,12 +56,10 @@ function step(){
         printList 2
         read   -p "选择目标机:" target
         # 直接连接的机器
-        for (( i = 0; i < $arr_len; i++ )); do
-            if [[ ${TYPE_ARR[$target]} -eq 2 ]]; then
-              echo 正在连接服务器 ${HOST_ARR[$select]}
-              expect $STEP_FILE ${HOST_ARR[$select]} ${PASS_ARR[$select]} ${HOST_ARR[$target]} ${PASS_ARR[$target]} 
-            fi
-        done
+        if [[ ${TYPE_ARR[$target]} -eq 2 ]]; then
+          echo 正在连接服务器 ${HOST_ARR[$select]}
+          expect $STEP_FILE ${HOST_ARR[$select]} ${PASS_ARR[$select]} ${HOST_ARR[$target]} ${PASS_ARR[$target]} 
+        fi
     else
         echo 输入的数字不正确
     fi
