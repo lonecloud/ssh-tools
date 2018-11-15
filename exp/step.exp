@@ -1,16 +1,18 @@
 #!/bin/expect
 set ip [lindex $argv 0 ]  
-set passwd [lindex $argv 1 ] 
-set for_ip [lindex $argv 2 ] 
-set for_pwd [lindex $argv 3 ] 
+set port [lindex $argv 1]
+set passwd [lindex $argv 2 ] 
+set for_ip [lindex $argv 3 ] 
+set for_port [lindex $argv 4 ] 
+set for_pwd [lindex $argv 5 ] 
 set timeout 10
-spawn ssh $ip
+spawn ssh $ip -p $port
 expect {  
  	"*yes/no" { send "yes\r"; exp_continue}  
  	"*assword:" { send "$passwd\r" }  
 }
-expect "*@*"   
-send  "ssh $for_ip\r"
+expect "*@*"
+send "ssh $for_ip -p $for_port\r"
 expect {  
  	"*yes/no" { send "yes\r"; exp_continue}  
  	"*assword:" { send "$for_pwd\r" }  

@@ -15,6 +15,17 @@ FORWARD_ARR=($(awk 'BEGIN {i=0}{if($1 !~ /^#/) i+=1} END {print $4}' $DATA_FILE)
 DEFAULT_TYPE=$1
 DEFAULT_SOURCE=$2
 DEFAULT_TARGET=$3
+TEMP_ADDR="roo@127.0.0.1 22"
+# def for host
+function splitAddr(){
+  address=$1
+  arr=(${address//:/ })
+  if [[ ${#arr[@]} -eq 2  ]]; then
+    TEMP_ADDR="${arr[0]} ${arr[1]}"
+  else
+    TEMP_ADDR="${arr[0]} 22"
+  fi
+}
 # 用于打印服务器列表
 function printList(){
   for (( i = 0; i < $arr_len; i++ )); do
@@ -29,14 +40,17 @@ function direct()
 {
     if [[ -n $DEFAULT_SOURCE ]]; then
       select=$DEFAULT_SOURCE
-      expect $DIRECT_FILE ${HOST_ARR[$select]} ${PASS_ARR[$select]}
+      # using split port
+      splitAddr ${HOST_ARR[$select]};
+      expect $DIRECT_FILE $TEMP_ADDR ${PASS_ARR[$select]}
     else
       printList 0
       read select
       if [[ ${arr_len} -gt $select ]]; then
-      # 直接连接的机器
+        # 直接连接的机器
         echo 正在连接服务器 ${HOST_ARR[$select]}
-        expect $DIRECT_FILE ${HOST_ARR[$select]} ${PASS_ARR[$select]}
+        splitAddr ${HOST_ARR[$select]}
+        expect $DIRECT_FILE $TEMP_ADDR ${PASS_ARR[$select]}
       else
         echo 输入的数字不正确
       fi   
@@ -46,8 +60,12 @@ function direct()
 function step(){
   if [[ -n $DEFAULT_SOURCE ]]; then
     select=$DEFAULT_SOURCE
+    splitAddr ${HOST_ARR[$select]}
+    SOURCE_ADDR=$TEMP_ADDR
     target=$DEFAULT_TARGET
-    expect $STEP_FILE ${HOST_ARR[$select]} ${PASS_ARR[$select]} ${HOST_ARR[$target]} ${PASS_ARR[$target]} 
+    splitAddr ${HOST_ARR[$target]}
+    TARGET_ADDR=$TEMP_ADDR
+    expect $STEP_FILE  $SOURCE_ADDR ${PASS_ARR[$select]} ${TARGET_ADDR} ${PASS_ARR[$target]} 
   else
     echo '选择跳板机'
     printList 1
@@ -57,8 +75,12 @@ function step(){
         read   -p "选择目标机:" target
         # 直接连接的机器
         if [[ ${TYPE_ARR[$target]} -eq 2 ]]; then
+          splitAddr ${HOST_ARR[$select]}
+          SOURCE_ADDR=$TEMP_ADDR
+          splitAddr ${HOST_ARR[$target]}
+          TARGET_ADDR=$TEMP_ADDR
           echo 正在连接服务器 ${HOST_ARR[$select]}
-          expect $STEP_FILE ${HOST_ARR[$select]} ${PASS_ARR[$select]} ${HOST_ARR[$target]} ${PASS_ARR[$target]} 
+          expect $STEP_FILE $SOURCE_ADDR ${PASS_ARR[$select]} $TARGET_ADDR ${PASS_ARR[$target]}
         fi
     else
         echo 输入的数字不正确
