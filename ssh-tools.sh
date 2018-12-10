@@ -1,7 +1,7 @@
 #/bin/bash
 echo 请选择你的机器列表
 # define BASE PATH
-BASE_PATH=./
+BASE_PATH=$(dirname "$0")
 # 定义数据相关的文件
 DATA_FILE=$BASE_PATH/data/ssh.dat
 # 定义执行ssh的文件
