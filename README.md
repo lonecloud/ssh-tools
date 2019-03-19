@@ -1,5 +1,7 @@
 # ssh-tools
 
+![](https://img.shields.io/badge/lanauage-%E4%B8%AD%E6%96%87-brightgreen.svg)[![](https://img.shields.io/badge/platform-linux/MacOS-brightgreen.svg)]()[![release](https://img.shields.io/badge/release-v0.1-orange.svg)](<https://github.com/lonecloud/ssh-tools/releases>)[![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
+
 > 一款为方便mac以及类unix使用ssh以及ssh跳板机的一个shell小工具
 
 使用说明：
