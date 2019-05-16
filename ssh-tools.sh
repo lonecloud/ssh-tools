@@ -10,6 +10,7 @@ STEP_FILE=$BASE_PATH/exp/step.exp
 TYPE_ARR=($(awk '{print $1}' $DATA_FILE))
 HOST_ARR=($(awk '{print $2}' $DATA_FILE))
 PASS_ARR=($(awk '{print $3}' $DATA_FILE))
+COMMENT_ARR=($(awk '{print $4}' $DATA_FILE))
 FORWARD_ARR=($(awk 'BEGIN {i=0}{if($1 !~ /^#/) i+=1} END {print $3}' $DATA_FILE))
 FORWARD_ARR=($(awk 'BEGIN {i=0}{if($1 !~ /^#/) i+=1} END {print $4}' $DATA_FILE))
 DEFAULT_TYPE=$1
@@ -30,7 +31,7 @@ function splitAddr(){
 function printList(){
   for (( i = 0; i < $arr_len; i++ )); do
     if [[ ${TYPE_ARR[$i]} -eq $1 ]]; then
-      echo "$i ${HOST_ARR[$i]}"
+      echo "$i ${HOST_ARR[$i]} ${COMMENT_ARR[$i]}"
     fi
   done
   echo 请输入你需要直接进入的服务器
@@ -104,7 +105,7 @@ case "$type" in
        ;;
     *)
        #其它输入
-       echo "output error,please input 1/2/2"
+       echo "output error,please input 1/2"
        ;;
 esac
 
