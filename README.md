@@ -37,6 +37,7 @@ git clone git@github.com:lonecloud/ssh-tools.git
 跳板机：
 
 ![跳板机](images/1541679098732.gif)
+
 iterm2配置：
 
 ⌘ + o 打开配置文件
