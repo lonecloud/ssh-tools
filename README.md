@@ -51,7 +51,7 @@ iterm2配置：
 
 双击配置文件即可打开！
 
-![iterm2](images/Xnip2019-07-12_00-55-00.jpg)
+![iterm2](images/Xnip2019-07-12_01-13-51.jpg)
 
 
 
