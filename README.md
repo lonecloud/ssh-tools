@@ -28,31 +28,30 @@ git clone git@github.com:lonecloud/ssh-tools.git
 0 root@192.168.209.13 123456
 ```
 
-操作指引图片：(PS: 最近不翻墙图片还看不了？！)
+操作指引图片：
 
 直连：
 
 ![直连操作](images/1541678825141.gif)
-![直连操作](https://pic.0x4096.com/1541678825141.gif)
 
 跳板机：
 
 ![跳板机](images/1541679098732.gif)
-![跳板机](https://pic.0x4096.com/1541679098732.gif)
-
 iterm2配置：
 
 ⌘ + o 打开配置文件
 
-![iterm2](https://pic.0x4096.com/Xnip2019-07-12_00-47-14.jpg)
+![iterm2](images/Xnip2019-07-12_00-47-14.jpg)
 
 设置好相应的信息即可
 
-![iterm2](https://pic.0x4096.com/Xnip2019-07-12_00-53-08.jpg)
+⌘ + o 打开配置文件
+
+![iterm2](images/Xnip2019-07-12_00-53-08.jpg)
 
 双击配置文件即可打开！
 
-![iterm2](https://pic.0x4096.com/Xnip2019-07-12_00-55-00.jpg)
+![iterm2](images/Xnip2019-07-12_00-55-00.jpg)
 
 
 
