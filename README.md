@@ -40,6 +40,21 @@ git clone git@github.com:lonecloud/ssh-tools.git
 
 iterm2配置：
 
+⌘ + o 打开配置文件
+
+![iterm2](images/Xnip2019-07-12_00-47-14.jpg)
+
+设置好相应的信息即可
+
+⌘ + o 打开配置文件
+
+![iterm2](images/Xnip2019-07-12_00-53-08.jpg)
+
+双击配置文件即可打开！
+
+![iterm2](images/Xnip2019-07-12_01-13-51.jpg)
+
+
 
 
 ## 未待完续，欢迎Fork and star
