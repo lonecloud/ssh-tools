@@ -17,6 +17,8 @@ DEFAULT_TYPE=$1
 DEFAULT_SOURCE=$2
 DEFAULT_TARGET=$3
 TEMP_ADDR="roo@127.0.0.1 22"
+# 指定当前 session 的LC_CTYPE，用来解决 sz、rz 失效的问题
+export LC_CTYPE=en_US
 # def for host
 function splitAddr(){
   address=$1
