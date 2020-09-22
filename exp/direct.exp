@@ -9,7 +9,8 @@ expect {
  	"*assword:" { send "$passwd\r" }  
 }  
 expect "*@*"    
-send "clear\r"
+# 重设 session 的 LC_CTYPE，否则会出现乱码
+send "export LC_CTYPE=\${LANG}\r clear\r"
 trap {
  set rows [stty rows]
  set cols [stty columns]
